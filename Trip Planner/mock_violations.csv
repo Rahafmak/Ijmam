@@ -1,0 +1,8 @@
+trip_id,violation_type,timestamp
+TRIP-001,phone_use,2026-08-20T23:14:00
+TRIP-001,no_seatbelt,2026-08-20T22:50:00
+TRIP-001,lane_departure,2026-08-21T01:05:00
+TRIP-002,speeding,2026-08-19T10:45:00
+TRIP-003,phone_use,2026-08-21T23:10:00
+TRIP-003,speeding,2026-08-21T23:40:00
+TRIP-003,phone_use,2026-08-22T00:05:00
