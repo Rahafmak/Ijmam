@@ -1,0 +1,6 @@
+ultralytics
+mediapipe
+opencv-python
+numpy
+pandas
+pyttsx3
