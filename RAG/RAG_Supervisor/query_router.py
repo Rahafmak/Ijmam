@@ -8,12 +8,6 @@ Ties the two layers together:
   - vector_store.py -> semantic answers for open-ended "what happened"
                        narrative questions (best-matching trip text)
 
-A simple keyword/regex classifier decides which layer handles each
-question. This is the important design choice: a supervisor's questions
-split cleanly into "give me a number/list" (structured) vs "tell me the
-story of what happened" (semantic), and trying to force both through
-vector search alone is why naive single-collection RAG designs give wrong
-answers to questions like "top 3 violators".
 """
 
 import re
@@ -21,7 +15,7 @@ import re
 import analytics
 import vector_store
 
-DATA_PATH = r"C:\Users\nice try\Documents\KSU CS\Tuwaiq\final_project\RAG\data\synthetic_trips.json"
+DATA_PATH = r"/data/synthetic_trips.json"
 _df = None  # lazy-loaded singleton
 
 
