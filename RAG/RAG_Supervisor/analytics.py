@@ -88,7 +88,7 @@ def recurring_fatigue(df: pd.DataFrame, driver_name: str, threshold: int = 2) ->
 
 
 if __name__ == "__main__":
-    df = load_trips_df("/mnt/user-data/uploads/synthetic_trips.json")
+    df = load_trips_df("/data/synthetic_trips.json")
 
     print("Top 3 violators:")
     print(top_violators(df, 3), "\n")
