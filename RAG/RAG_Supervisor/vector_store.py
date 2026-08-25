@@ -1,7 +1,7 @@
 """
 vector_store.py
 ----------------
-Steps 4-5 of the pipeline: "create embeddings" -> "store in vector database".
+"create embeddings" -> "store in vector database".
 
 Uses Chroma with a real neural embedding model.
 """
@@ -12,23 +12,16 @@ import chromadb.utils.embedding_functions as embedding_functions
 
 from data_loader import build_documents
 
-PERSIST_DIR = r"C:\Users\nice try\Documents\KSU CS\Tuwaiq\final_project\RAG\chroma_db"
+PERSIST_DIR = r"C:\Users\nice try\Documents\KSU CS\Tuwaiq\final_project\RAG_supervisor\chroma_db"
 COLLECTION_NAME = "driver_trips"
+DATA_PATH = r"/data/synthetic_trips.json"
 
 
 def get_embedding_function():
-    # --- CHOOSE ONE OF THE OPTIONS BELOW ---
-    
-    # OPTION A: Local Sentence-Transformers (Free / CPU / No API key)
+    # Local Sentence-Transformers (Free / CPU / No API key)
     return embedding_functions.SentenceTransformerEmbeddingFunction(
         model_name="all-MiniLM-L6-v2"
     )
-
-    # OPTION B: OpenAI (Requires OPENAI_API_KEY environment variable)
-    # return embedding_functions.OpenAIEmbeddingFunction(
-    #     api_key=os.getenv("OPENAI_API_KEY"),
-    #     model_name="text-embedding-3-small"
-    # )
 
 
 def build_index(json_path: str, persist_dir: str = PERSIST_DIR):
@@ -78,15 +71,14 @@ def semantic_search(query: str, n_results: int = 5, where: dict | None = None):
     return hits
 
 
+ 
 if __name__ == "__main__":
-    json_file_path = r"C:\Users\nice try\Documents\KSU CS\Tuwaiq\final_project\RAG\data\synthetic_trips.json"
-    
-    build_index(json_file_path)
-
-    print("\n--- test query: 'What happened during Ahmed's last trip?' ---")
+    build_index(DATA_PATH)
+ 
+    print("\n--- dense-only: 'Riyadh to Dammam trips' ---")
     for h in semantic_search(
-        "Ahmed's last trip what happened",
-        n_results=3,
-        where={"driver_name": "Ahmed Ali"},
+        "Riyadh to Dammam trips", n_results=3
     ):
-        print(h["id"], h["metadata"]["departure_time"], "dist=", round(h["distance"], 3))
+        print(h["id"], "dist=", round(h["distance"], 3))
+
+ 
