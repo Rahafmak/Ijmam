@@ -3,18 +3,8 @@ analytics.py
 -------------
 Structured (non-vector) layer over the same trip data.
 
-Vector similarity search is good at "find trips that talk about X" -- it is
-NOT good at counting, ranking, or "most recent" questions, because:
-  - "top 3 violators" requires aggregating across ALL trips, not just the
-    ones that happen to score highest similarity to the query text.
-  - "how many fatigue violations did Ahmed have" requires an exact sum,
-    not the N most-similar documents.
-  - "Ahmed's last trip" requires sorting by departure_time, a property
-    embeddings know nothing about.
-
-These questions are answered by direct computation over the trip records
-(here via pandas), and this is what a supervisor is really asking for --
-usually an exact number, not "vibes-similar" text.
+answers analytics questions by direct computation over the trip records
+(here via pandas).
 """
 
 import pandas as pd
