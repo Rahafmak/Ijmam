@@ -2,15 +2,14 @@
 data_loader.py
 --------------
 Loads synthetic_trips.json and converts each trip into:
-  1. a human-readable text "document" (what gets embedded)
-  2. a metadata dict (what gets used for filtering / structured lookups)
-
-This is step 2-3 of the pipeline: "load trips" -> "convert each trip into searchable text".
+  1. a human-readable text "document" (for embedding)
+  2. a metadata dict (for filtering / structured lookups)
 """
 
 import json
 from datetime import datetime
 
+DATA_PATH = r"/data/synthetic_trips.json"
 
 def _fmt_time(iso_str: str) -> str:
     """2026-08-02T11:12:00Z -> 'Aug 02, 2026 11:12'"""
@@ -63,6 +62,7 @@ def trip_to_text(trip: dict) -> str:
     lines.append(f"- Speeding: {vb.get('speeding', 0)}")
     lines.append(f"- Phone: {vb.get('phone', 0)}")
     if "rest" in vb:
+        lines.append("Rests taken:")
         lines.append(f"- Rest: {vb.get('rest', 0)}")
 
     compliance = "Followed" if trip["report"]["followed_planned_rest"] else "Not followed"
@@ -89,6 +89,7 @@ def trip_to_metadata(trip: dict) -> dict:
         "driver_name": trip["driver_name"],
         "origin": trip["origin"],
         "destination": trip["destination"],
+        "route": f"{trip['origin']} → {trip['destination']}",
         "departure_time": trip["departure_time"],
         "arrival_time": trip["arrival_time"],
         "status": trip["status"],
@@ -114,7 +115,7 @@ def build_documents(path: str) -> tuple[list[str], list[dict], list[str]]:
 
 
 if __name__ == "__main__":
-    docs, metas, ids = build_documents("/mnt/user-data/uploads/synthetic_trips.json")
+    docs, metas, ids = build_documents(DATA_PATH)
     print(f"Built {len(docs)} trip documents.\n")
     print(docs[0])
     print("\n--- metadata ---")
