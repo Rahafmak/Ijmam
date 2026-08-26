@@ -21,17 +21,6 @@ macOS or Linux: `python3.12 -m venv .venv` then `source .venv/bin/activate`.
 Then open **http://localhost:8080**. No API keys or model weights needed for
 the planner, the insights and both chatbots.
 
-For the camera screen:
-
-```powershell
-pip install -r requirements-cv.txt
-copy $HOME\Downloads\bestphonenew.pt models\
-copy $HOME\Downloads\besttt.pt models\
-```
-
-`check.py` runs 23 checks over the planner, the bots, the insights and the
-detectors. Run it before you present.
-
 **Python 3.10 or newer.** 3.12 is the safe choice — MediaPipe, which the
 drowsiness and yawning detectors need, does not always have wheels for the
 newest release.
