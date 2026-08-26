@@ -1,0 +1,8 @@
+# Dashboard + planner + both chatbots. Everything here is small and installs in
+# under a minute. The computer-vision dependencies are deliberately NOT in this
+# file - see requirements-cv.txt.
+nicegui>=1.4.20
+pandas>=2.0
+folium>=0.15
+requests>=2.31
+openpyxl>=3.1

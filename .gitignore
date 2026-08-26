@@ -1,0 +1,18 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.DS_Store
+.ipynb_checkpoints/
+
+# model weights - too big for git, and they belong in releases not history
+models/*.pt
+models/*.pth
+models/*.onnx
+
+# runtime artifacts
+data/uploads/*
+data/outputs/*
+!data/uploads/.gitkeep
+!data/outputs/.gitkeep

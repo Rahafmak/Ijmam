@@ -1,0 +1,12 @@
+# Only needed for the Camera Analysis tab.
+#
+# opencv alone runs the road-facing detectors — lane departure and weaving are
+# classical CV, no weights and no download.
+# ultralytics runs the phone and seatbelt models, and vehicle detection.
+# mediapipe runs the drowsiness (EAR) and yawning (MAR) detectors.
+#
+# Each one degrades independently: if mediapipe is missing you still get phone
+# and seatbelt, and the app says which detectors did not run.
+opencv-python-headless>=4.9
+ultralytics>=8.1
+mediapipe>=0.10

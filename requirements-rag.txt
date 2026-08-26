@@ -1,0 +1,18 @@
+# OPTIONAL. Both chatbots work without these.
+#
+# The manager assistant falls back to BM25 retrieval over the same trip
+# documents, and the policy assistant returns the retrieved section verbatim.
+# Install these to run the full Chroma + Llama pipeline instead.
+
+# Manager assistant: vector search over trip records
+chromadb
+sentence-transformers
+
+# Manager assistant: local phrasing with Llama 3.1
+# Also requires Ollama itself: https://ollama.com, then `ollama pull llama3.1`
+ollama
+
+# Policy assistant: Gemini answers the question from the full policy manual.
+# Set GEMINI_API_KEY to enable it. Without it the assistant answers offline
+# from the manual instead, in Arabic or English to match the question.
+google-genai
