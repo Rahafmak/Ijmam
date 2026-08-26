@@ -15,7 +15,7 @@ import re
 import analytics
 import vector_store
 
-DATA_PATH = r"/data/synthetic_trips.json"
+DATA_PATH = r"\data\synthetic_trips.json"
 _df = None  # lazy-loaded singleton
 
 
@@ -24,8 +24,8 @@ def _get_df():
     if _df is None:
         _df = analytics.load_trips_df(DATA_PATH)
     return _df
-
-
+ 
+ 
 def _extract_driver_name(query: str) -> str | None:
     df = _get_df()
     names = df["driver_name"].unique().tolist()
@@ -35,22 +35,25 @@ def _extract_driver_name(query: str) -> str | None:
         if first_name in q_lower or name.lower() in q_lower:
             return name
     return None
-
-
+ 
+ 
 def _extract_violation_type(query: str) -> str | None:
     q = query.lower()
-    for vtype in ["fatigue", "speeding", "phone", "rest"]:
+    # order matters: check two-word phrasing before the bare keyword
+    if "lane drift" in q or "lane_drift" in q or "lane-drift" in q:
+        return "lane_drift"
+    for vtype in ["fatigue", "speeding", "phone", "tailgating", "seatbelt", "rest"]:
         if vtype in q:
             return vtype
     return None
-
-
+ 
+ 
 def route(query: str) -> dict:
     """Classify the query and return {'intent':, 'answer':, 'source':, 'evidence':}."""
     q = query.lower()
     df = _get_df()
     driver = _extract_driver_name(query)
-
+ 
     # --- "top N violators" ---------------------------------------------
     if "top" in q and ("violator" in q or "violation" in q):
         n_match = re.search(r"top\s+(\d+)", q)
@@ -61,25 +64,29 @@ def route(query: str) -> dict:
             for i, row in enumerate(top.itertuples())
         )
         return {"intent": "top_violators", "answer": answer, "source": "analytics", "evidence": top}
-
-    # --- "recurring fatigue issues" --------------------------------------
-    if "recurring" in q and "fatigue" in q and driver:
-        r = analytics.recurring_fatigue(df, driver)
+ 
+    # --- "recurring <violation type> issues" ------------------------------
+    vtype_for_recurring = _extract_violation_type(query)
+    if "recurring" in q and vtype_for_recurring and driver:
+        r = analytics.recurring_violation(df, driver, vtype_for_recurring)
         answer = (
-            f"{driver} had fatigue events in {r['trips_with_fatigue']} of "
-            f"{r['total_trips']} trips ({r['total_fatigue_events']} events total). "
+            f"{driver} had {vtype_for_recurring} events in {r['trips_with_violation']} of "
+            f"{r['total_trips']} trip segment(s) ({r['total_violation_events']} events total). "
             f"{'This does look like a recurring issue' if r['is_recurring'] else 'This looks isolated, not recurring'}, "
-            f"appearing in trips: {', '.join(r['trip_ids'])}."
+            f"appearing in trips: {', '.join(r['trip_ids']) if r['trip_ids'] else 'none'}."
         )
-        return {"intent": "recurring_fatigue", "answer": answer, "source": "analytics", "evidence": r}
-
+        return {"intent": "recurring_violation", "answer": answer, "source": "analytics", "evidence": r}
+ 
     # --- "how many X violations did <driver> have" -----------------------
     vtype = _extract_violation_type(query)
     if driver and vtype and ("how many" in q or "count" in q or "number of" in q):
         count = analytics.violation_count(df, driver, vtype)
-        answer = f"{driver} had {count} {vtype} violation(s) across all logged trips."
+        answer = (
+            f"{driver} had {count} {vtype} violation(s) across all logged trips "
+            f"(counting only events attributed to their own driving segments)."
+        )
         return {"intent": "violation_count", "answer": answer, "source": "analytics", "evidence": count}
-
+ 
     # --- "which trips had <violation type> violations" -------------------
     if vtype and ("which trips" in q or "what trips" in q or "trips had" in q):
         trips = analytics.trips_with_violation(df, vtype)
@@ -88,7 +95,7 @@ def route(query: str) -> dict:
             for row in trips.itertuples()
         )
         return {"intent": "trips_with_violation", "answer": answer, "source": "analytics", "evidence": trips}
-
+ 
     # --- "did <driver> follow his planned rest stops" ---------------------
     if driver and ("rest stop" in q or "planned rest" in q) and (
         "follow" in q or "comply" in q or "compliance" in q
@@ -105,31 +112,38 @@ def route(query: str) -> dict:
             )
         )
         return {"intent": "rest_compliance", "answer": answer, "source": "analytics", "evidence": rc}
-
+ 
     # --- "<driver>'s last trip" -------------------------------------------
     if driver and ("last trip" in q or "most recent trip" in q or "latest trip" in q):
         trip = analytics.last_trip(df, driver)
         if trip is None:
             return {"intent": "last_trip", "answer": f"No trips found for {driver}.", "source": "analytics", "evidence": None}
-        # Pull the matching full-text document from the vector store for
-        # the narrative details (events, rest stop details, etc.) --
-        # analytics.py only carries the numeric columns.
+        # Pull this driver's own segment document -- filter by BOTH
+        # trip_id AND driver_name, since a multi-driver trip now has one
+        # segment document per driver and trip_id alone would be ambiguous.
         hits = vector_store.semantic_search(
-            trip["trip_id"], n_results=1, where={"trip_id": trip["trip_id"]}
+            trip["trip_id"],
+            n_results=1,
+            where={
+                "$and": [
+                    {"trip_id": trip["trip_id"]},
+                    {"driver_name": driver}
+                ]
+            },
         )
         text = hits[0]["text"] if hits else ""
         answer = f"{driver}'s last trip was {trip['trip_id']} ({trip['departure_time'].strftime('%b %d, %Y %H:%M')}):\n\n{text}"
         return {"intent": "last_trip", "answer": answer, "source": "hybrid", "evidence": trip}
-
+ 
     # --- fallback: open-ended narrative question -> semantic search -------
     where = {"driver_name": driver} if driver else None
     hits = vector_store.semantic_search(query, n_results=3, where=where)
-    answer = "Here are the most relevant trips I found:\n\n" + "\n\n".join(
+    answer = "Here are the most relevant trip segments I found:\n\n" + "\n\n".join(
         f"[{h['id']}] (similarity dist={h['distance']:.3f})\n{h['text']}" for h in hits
     )
     return {"intent": "semantic_fallback", "answer": answer, "source": "vector_search", "evidence": hits}
-
-
+ 
+ 
 if __name__ == "__main__":
     questions = [
         "What happened during Ahmed's last trip?",
@@ -146,3 +160,7 @@ if __name__ == "__main__":
         print(f"[intent={result['intent']}, source={result['source']}]")
         print(result["answer"])
         print()
+
+ 
+
+
