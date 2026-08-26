@@ -10,10 +10,14 @@ answer to the supervisor's question.
 import os
 
 import ollama
+from collections import deque
+import re
 
 import query_router
 
 MODEL = "llama3.1"
+MEMORY_SIZE = 2
+_PRONOUN_RE = re.compile(r"\b(he|him|his|she|her)\b", re.IGNORECASE)
 
 SYSTEM_PROMPT = """You are a fleet-safety assistant that answers a \
 supervisor's questions about drivers, using ONLY the context provided \
@@ -34,16 +38,35 @@ plainly instead of guessing.
 - Keep the answer concise -- 2-5 sentences, unless the question asks for \
 a list, in which case use a short list.
 """
+# oldest exchange drops off automatically once you go past MEMORY_SIZE.
+_history = deque(maxlen=MEMORY_SIZE)
+_last_driver = None  # tracks the most recently discussed driver, for pronouns
 
+def _history_text() -> str:
+    if not _history:
+        return "None yet."
+    return "\n".join(f"Q: {q}\nA: {a}" for q, a in _history)
+
+def _resolve_pronouns(query: str) -> str:
+    global _last_driver
+    found = query_router._extract_driver_name(query)
+    if found:
+        _last_driver = found
+        return query
+    if _last_driver and _PRONOUN_RE.search(query):
+        return _PRONOUN_RE.sub(_last_driver, query)
+    return query
 
 
 def generate_answer(query: str) -> str:
     """Full pipeline using local Llama 3.1."""
-    result = query_router.route(query)
+    resolved_query = _resolve_pronouns(query)
+    result = query_router.route(resolved_query)
 
     context = (
-        f"Question intent: {result['intent']}\n"
-        f"Source: {result['source']}\n\n"
+        f"Conversation so far (most recent {MEMORY_SIZE}):\n{_history_text()}\n\n"
+        f"Question intent (already classified): {result['intent']}\n"
+        f"Source of this context: {result['source']}\n\n"
         f"Context:\n{result['answer']}"
     )
 
@@ -57,6 +80,8 @@ def generate_answer(query: str) -> str:
         ]
     )
 
+    _history.append((query, response['message']['content']))
+
     return response['message']['content']
 
 
@@ -64,6 +89,8 @@ if __name__ == "__main__":
     questions = [
         "What happened during Ahmed's last trip?",
         "How many fatigue violations did Ahmed have?",
+        "How many fatigue violations did Khaled have?",
+        "Does he have speeding violations also?",
         "Who are the top 3 violators?",
         "Which trips had phone violations?",
         "Did Ahmed follow his planned rest stops?",
