@@ -121,30 +121,3 @@ the routed result and a short conversation memory that resolves pronouns, so
 "did he speed as well?" follows on from the previous question. Without them the
 same routing logic runs over BM25 retrieval, so the assistant works either way.
 Install `requirements-rag.txt` for the full stack.
-
----
-
-## Files removed during integration
-
-`core/rest_stops.py`, `core/merge_cv_results.py` and the seven-row
-`data/mock_violations.csv` were removed. The first was
-superseded by `ijmam/policy_rules.py`, which derives the same scheduling from
-the policy manual; the second was superseded by the CV pipeline writing its
-violations file directly. Both are still in the team's original repository.
-
-## Before submission
-
-1. **Station names in `core/rest_stop_suggestions.py` are illustrative.** The
-   towns are real; the specific SASCO and Aldrees names were written in that
-   style. Do a Google Maps pass on Jeddah–Tabuk — someone on the panel has
-   driven that road.
-2. **`data/synthetic_trips.json` is synthetic.** Say so.
-3. **The real in-cab session was recorded at 00:30.** Present it as proof the
-   pipeline works, not as a finding about night driving.
-4. **Nothing measures speed.** Speeding is the headline crash cause in the
-   Ministry of Interior data and in the operator's own fleet, but the pipeline
-   infers following distance from a single camera. State the gap.
-5. **`FOCAL_LENGTH = 750` is a guess** for an unknown camera. The distances are
-   useful as closer/further, not as metres.
-
-See `docs/` for the policy alignment note and the in-cab code review.
