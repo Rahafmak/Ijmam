@@ -104,6 +104,7 @@ events attributed to their own stretch behind the wheel. Seven violation types
 are tracked: fatigue, speeding, phone, tailgating, seatbelt, lane drift and
 rest compliance.
 
+*
 If `chromadb` and `ollama` are installed, the full pipeline in
 `core/query_router.py` and `core/llm_answer.py` runs, with Llama 3.1 phrasing
 the routed result and a short conversation memory that resolves pronouns, so
