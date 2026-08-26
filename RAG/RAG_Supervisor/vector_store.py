@@ -12,9 +12,9 @@ import chromadb.utils.embedding_functions as embedding_functions
 
 from data_loader import build_documents
 
-PERSIST_DIR = r"C:\Users\nice try\Documents\KSU CS\Tuwaiq\final_project\RAG_supervisor\chroma_db"
+PERSIST_DIR = r"\RAG_supervisor\chroma_db"
 COLLECTION_NAME = "driver_trips"
-DATA_PATH = r"/data/synthetic_trips.json"
+DATA_PATH = r"\data\synthetic_trips.json"
 
 
 def get_embedding_function():
@@ -69,16 +69,18 @@ def semantic_search(query: str, n_results: int = 5, where: dict | None = None):
     ):
         hits.append({"id": id_, "text": doc, "metadata": meta, "distance": dist})
     return hits
-
-
+ 
  
 if __name__ == "__main__":
     build_index(DATA_PATH)
  
-    print("\n--- dense-only: 'Riyadh to Dammam trips' ---")
+    print("\n--- test query: 'What happened during Ahmed's last trip?' ---")
     for h in semantic_search(
-        "Riyadh to Dammam trips", n_results=3
+        "Ahmed's last trip what happened",
+        n_results=3,
+        where={"driver_name": "Ahmed Ali"},
     ):
-        print(h["id"], "dist=", round(h["distance"], 3))
+        print(h["id"], h["metadata"]["departure_time"], "dist=", round(h["distance"], 3))
+
 
  
