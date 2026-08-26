@@ -1,0 +1,40 @@
+==================================================
+Operational Policies & Regulations Manual - Ijmam Transport Co.
+==================================================
+
+1. Rest Periods & Driving Hours Policy:
+- The maximum continuous driving duration is 4 consecutive hours.
+- Drivers are required to take a mandatory break of at least 30 minutes after every 4 hours of driving.
+- Total rest periods in a single day must not exceed 2 hours (120 minutes).
+- Driving for more than 9 total hours within a 24-hour period is strictly prohibited.
+
+2. Night Driving Policy:
+- The night shift period is defined from 11:00 PM to 5:00 AM.
+- The maximum allowed speed limit during night driving is reduced by 10 km/h compared to the posted road speed.
+- Drivers must stop for a 20-minute rest break every 2 hours during night operations.
+
+3. Speed Limits & Fleet Monitoring Policy:
+- Absolute maximum speed limit for heavy transport vehicles is 90 km/h under all circumstances.
+- All fleet vehicles are tracked via GPS for speed violations and harsh braking.
+- First speed violation results in a formal written warning; second violation leads to a 10% deduction from monthly bonuses.
+
+4. Vehicle Maintenance & Daily Inspection:
+- Drivers must perform a pre-trip inspection checklist (brakes, tires, lights, fluid levels) before starting any route.
+- Any mechanical defect must be reported immediately via the driver app before leaving the depot.
+- Routine vehicle servicing is scheduled every 10,000 km and is mandatory.
+
+5. Safety, Accidents & Emergency Protocol:
+- If a driver feels fatigued, they have the right to pull over at the nearest rest area and immediately notify the control room.
+- Mobile phone use while driving is strictly forbidden, except via hands-free voice technology.
+- In case of accidents or technical breakdowns, drivers must immediately contact the company emergency line (920000000) and activate hazard lights.
+- Dashcam footage will be reviewed for all reported incidents.
+
+6. Overtime & Compensation Allowance:
+- Driving beyond standard daily shift hours requires prior authorization from the Operations Manager.
+- Approved overtime is compensated at 1.5x the standard hourly base rate.
+- Drivers working overnight trips away from their home base receive a meal allowance of 75 SAR per night.
+
+7. Leave & Absence Policy:
+- Requests for regular leave must be submitted at least 5 business days in advance.
+- Sick leaves require an officially certified medical report submitted through the company portal within 24 hours of absence.
+- Emergency leaves must be communicated to the HR department prior to shift commencement.
