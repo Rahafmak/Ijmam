@@ -1,0 +1,1194 @@
+[
+  {
+    "trip_id": "T001",
+    "drivers": [
+      {
+        "driver_id": "D04",
+        "driver_name": "Khaled Al-Harbi"
+      },
+      {
+        "driver_id": "D01",
+        "driver_name": "Ahmed Ali"
+      }
+    ],
+    "origin": "Riyadh",
+    "destination": "Jeddah",
+    "departure_time": "2026-08-01T11:30:00Z",
+    "arrival_time": "2026-08-01T21:00:00Z",
+    "status": "completed",
+    "planned_rest_stops": [
+      {
+        "stop_name": "Zulal Qassim-Riyadh Stop",
+        "scheduled_time": "2026-08-01T14:30:00Z",
+        "planned_duration_minutes": 30
+      },
+      {
+        "stop_name": "Mecca Expressway Service Center",
+        "scheduled_time": "2026-08-01T18:00:00Z",
+        "planned_duration_minutes": 30
+      }
+    ],
+    "events": [
+      {
+        "timestamp": "2026-08-01T13:33:00Z",
+        "type": "fatigue",
+        "severity": "low",
+        "details": "Micro-sleep event detected by optical driver monitoring sensor"
+      },
+      {
+        "timestamp": "2026-08-01T14:30:00Z",
+        "type": "rest",
+        "severity": "low",
+        "details": "Rest stop completed at Zulal Qassim-Riyadh Stop.",
+        "duration_minutes": 30
+      },
+      {
+        "timestamp": "2026-08-01T18:00:00Z",
+        "type": "rest",
+        "severity": "low",
+        "details": "Rest stop completed at Mecca Expressway Service Center.",
+        "duration_minutes": 30
+      }
+    ],
+    "report": {
+      "total_violations": 1,
+      "violations_breakdown": {
+        "fatigue": 1,
+        "speeding": 0,
+        "phone": 0,
+        "tailgating": 0,
+        "seatbelt": 0,
+        "lane_drift": 0,
+        "rest": 0
+      },
+      "followed_planned_rest": true,
+      "supervisor_summary": "Trip from Riyadh to Jeddah by Khaled Al-Harbi & Ahmed Ali logged 1 violation(s). Critical fatigue/micro-sleep event detected."
+    }
+  },
+  {
+    "trip_id": "T002",
+    "drivers": [
+      {
+        "driver_id": "D02",
+        "driver_name": "Youssef Hassan"
+      },
+      {
+        "driver_id": "D01",
+        "driver_name": "Ahmed Ali"
+      }
+    ],
+    "origin": "Dammam",
+    "destination": "Jubail",
+    "departure_time": "2026-08-02T15:30:00Z",
+    "arrival_time": "2026-08-02T17:00:00Z",
+    "status": "completed",
+    "planned_rest_stops": [
+      {
+        "stop_name": "Jubail Coastal Station",
+        "scheduled_time": "2026-08-02T16:18:00Z",
+        "planned_duration_minutes": 15
+      }
+    ],
+    "events": [
+      {
+        "timestamp": "2026-08-02T15:47:00Z",
+        "type": "seatbelt",
+        "severity": "low",
+        "details": "Driver seatbelt unfastened during trip operation"
+      },
+      {
+        "timestamp": "2026-08-02T16:18:00Z",
+        "type": "rest",
+        "severity": "medium",
+        "details": "Rest stop completed at Jubail Coastal Station.",
+        "duration_minutes": 10
+      },
+      {
+        "timestamp": "2026-08-02T16:34:00Z",
+        "type": "speeding",
+        "severity": "low",
+        "details": "Vehicle speed reached 142 km/h in designated speed zone"
+      },
+      {
+        "timestamp": "2026-08-02T16:36:00Z",
+        "type": "phone",
+        "severity": "medium",
+        "details": "Mobile device interaction detected while vehicle was in motion"
+      }
+    ],
+    "report": {
+      "total_violations": 4,
+      "violations_breakdown": {
+        "fatigue": 0,
+        "speeding": 1,
+        "phone": 1,
+        "tailgating": 0,
+        "seatbelt": 1,
+        "lane_drift": 0,
+        "rest": 1
+      },
+      "followed_planned_rest": false,
+      "supervisor_summary": "Trip from Dammam to Jubail by Youssef Hassan & Ahmed Ali logged 4 violation(s). Seatbelt violation flagged. Speeding threshold exceeded."
+    }
+  },
+  {
+    "trip_id": "T003",
+    "drivers": [
+      {
+        "driver_id": "D02",
+        "driver_name": "Youssef Hassan"
+      },
+      {
+        "driver_id": "D05",
+        "driver_name": "Fahad Salem"
+      }
+    ],
+    "origin": "Riyadh",
+    "destination": "Jeddah",
+    "departure_time": "2026-08-02T19:30:00Z",
+    "arrival_time": "2026-08-03T05:00:00Z",
+    "status": "completed",
+    "planned_rest_stops": [
+      {
+        "stop_name": "Zulal Qassim-Riyadh Stop",
+        "scheduled_time": "2026-08-02T22:30:00Z",
+        "planned_duration_minutes": 30
+      },
+      {
+        "stop_name": "Mecca Expressway Service Center",
+        "scheduled_time": "2026-08-03T02:00:00Z",
+        "planned_duration_minutes": 30
+      }
+    ],
+    "events": [
+      {
+        "timestamp": "2026-08-02T20:58:00Z",
+        "type": "phone",
+        "severity": "high",
+        "details": "Mobile device interaction detected while vehicle was in motion"
+      },
+      {
+        "timestamp": "2026-08-02T22:30:00Z",
+        "type": "rest",
+        "severity": "medium",
+        "details": "Rest stop completed at Zulal Qassim-Riyadh Stop.",
+        "duration_minutes": 20
+      },
+      {
+        "timestamp": "2026-08-03T01:49:00Z",
+        "type": "seatbelt",
+        "severity": "medium",
+        "details": "Driver seatbelt unfastened during trip operation"
+      },
+      {
+        "timestamp": "2026-08-03T02:00:00Z",
+        "type": "rest",
+        "severity": "medium",
+        "details": "Rest stop completed at Mecca Expressway Service Center.",
+        "duration_minutes": 20
+      }
+    ],
+    "report": {
+      "total_violations": 4,
+      "violations_breakdown": {
+        "fatigue": 0,
+        "speeding": 0,
+        "phone": 1,
+        "tailgating": 0,
+        "seatbelt": 1,
+        "lane_drift": 0,
+        "rest": 2
+      },
+      "followed_planned_rest": false,
+      "supervisor_summary": "Trip from Riyadh to Jeddah by Youssef Hassan & Fahad Salem logged 4 violation(s). Seatbelt violation flagged."
+    }
+  },
+  {
+    "trip_id": "T004",
+    "drivers": [
+      {
+        "driver_id": "D02",
+        "driver_name": "Youssef Hassan"
+      },
+      {
+        "driver_id": "D05",
+        "driver_name": "Fahad Salem"
+      }
+    ],
+    "origin": "Jeddah",
+    "destination": "Madinah",
+    "departure_time": "2026-08-03T07:30:00Z",
+    "arrival_time": "2026-08-03T11:30:00Z",
+    "status": "completed",
+    "planned_rest_stops": [
+      {
+        "stop_name": "Wadi Al-Aql Rest Area",
+        "scheduled_time": "2026-08-03T09:30:00Z",
+        "planned_duration_minutes": 20
+      }
+    ],
+    "events": [
+      {
+        "timestamp": "2026-08-03T09:01:00Z",
+        "type": "tailgating",
+        "severity": "medium",
+        "details": "Leaving no safe distance in front of the vehicle"
+      },
+      {
+        "timestamp": "2026-08-03T09:30:00Z",
+        "type": "rest",
+        "severity": "low",
+        "details": "Rest stop completed at Wadi Al-Aql Rest Area.",
+        "duration_minutes": 20
+      }
+    ],
+    "report": {
+      "total_violations": 1,
+      "violations_breakdown": {
+        "fatigue": 0,
+        "speeding": 0,
+        "phone": 0,
+        "tailgating": 1,
+        "seatbelt": 0,
+        "lane_drift": 0,
+        "rest": 0
+      },
+      "followed_planned_rest": true,
+      "supervisor_summary": "Trip from Jeddah to Madinah by Youssef Hassan & Fahad Salem logged 1 violation(s). Unsafe following distance logged."
+    }
+  },
+  {
+    "trip_id": "T005",
+    "drivers": [
+      {
+        "driver_id": "D02",
+        "driver_name": "Youssef Hassan"
+      }
+    ],
+    "origin": "Riyadh",
+    "destination": "Jeddah",
+    "departure_time": "2026-08-03T11:30:00Z",
+    "arrival_time": "2026-08-03T21:00:00Z",
+    "status": "completed",
+    "planned_rest_stops": [
+      {
+        "stop_name": "Zulal Qassim-Riyadh Stop",
+        "scheduled_time": "2026-08-03T14:30:00Z",
+        "planned_duration_minutes": 30
+      },
+      {
+        "stop_name": "Mecca Expressway Service Center",
+        "scheduled_time": "2026-08-03T18:00:00Z",
+        "planned_duration_minutes": 30
+      }
+    ],
+    "events": [
+      {
+        "timestamp": "2026-08-03T14:30:00Z",
+        "type": "rest",
+        "severity": "medium",
+        "details": "Rest stop completed at Zulal Qassim-Riyadh Stop.",
+        "duration_minutes": 25
+      },
+      {
+        "timestamp": "2026-08-03T17:56:00Z",
+        "type": "tailgating",
+        "severity": "high",
+        "details": "Leaving no safe distance in front of the vehicle"
+      },
+      {
+        "timestamp": "2026-08-03T18:00:00Z",
+        "type": "rest",
+        "severity": "low",
+        "details": "Rest stop completed at Mecca Expressway Service Center.",
+        "duration_minutes": 35
+      },
+      {
+        "timestamp": "2026-08-03T18:31:00Z",
+        "type": "seatbelt",
+        "severity": "low",
+        "details": "Driver seatbelt unfastened during trip operation"
+      }
+    ],
+    "report": {
+      "total_violations": 3,
+      "violations_breakdown": {
+        "fatigue": 0,
+        "speeding": 0,
+        "phone": 0,
+        "tailgating": 1,
+        "seatbelt": 1,
+        "lane_drift": 0,
+        "rest": 1
+      },
+      "followed_planned_rest": false,
+      "supervisor_summary": "Trip from Riyadh to Jeddah by Youssef Hassan logged 3 violation(s). Unsafe following distance logged. Seatbelt violation flagged."
+    }
+  },
+  {
+    "trip_id": "T006",
+    "drivers": [
+      {
+        "driver_id": "D03",
+        "driver_name": "Tariq Mansour"
+      },
+      {
+        "driver_id": "D02",
+        "driver_name": "Youssef Hassan"
+      }
+    ],
+    "origin": "Dammam",
+    "destination": "Jubail",
+    "departure_time": "2026-08-04T15:30:00Z",
+    "arrival_time": "2026-08-04T17:00:00Z",
+    "status": "completed",
+    "planned_rest_stops": [
+      {
+        "stop_name": "Jubail Coastal Station",
+        "scheduled_time": "2026-08-04T16:18:00Z",
+        "planned_duration_minutes": 15
+      }
+    ],
+    "events": [
+      {
+        "timestamp": "2026-08-04T16:05:00Z",
+        "type": "lane_drift",
+        "severity": "low",
+        "details": "Drifting from lane without active turn indicator"
+      },
+      {
+        "timestamp": "2026-08-04T16:18:00Z",
+        "type": "rest",
+        "severity": "low",
+        "details": "Rest stop completed at Jubail Coastal Station.",
+        "duration_minutes": 15
+      }
+    ],
+    "report": {
+      "total_violations": 1,
+      "violations_breakdown": {
+        "fatigue": 0,
+        "speeding": 0,
+        "phone": 0,
+        "tailgating": 0,
+        "seatbelt": 0,
+        "lane_drift": 1,
+        "rest": 0
+      },
+      "followed_planned_rest": true,
+      "supervisor_summary": "Trip from Dammam to Jubail by Tariq Mansour & Youssef Hassan logged 1 violation(s). Unintentional lane drift observed."
+    }
+  },
+  {
+    "trip_id": "T007",
+    "drivers": [
+      {
+        "driver_id": "D04",
+        "driver_name": "Khaled Al-Harbi"
+      },
+      {
+        "driver_id": "D02",
+        "driver_name": "Youssef Hassan"
+      }
+    ],
+    "origin": "Jeddah",
+    "destination": "Madinah",
+    "departure_time": "2026-08-04T19:30:00Z",
+    "arrival_time": "2026-08-04T23:30:00Z",
+    "status": "completed",
+    "planned_rest_stops": [
+      {
+        "stop_name": "Wadi Al-Aql Rest Area",
+        "scheduled_time": "2026-08-04T21:30:00Z",
+        "planned_duration_minutes": 20
+      }
+    ],
+    "events": [
+      {
+        "timestamp": "2026-08-04T21:30:00Z",
+        "type": "rest",
+        "severity": "medium",
+        "details": "Rest stop completed at Wadi Al-Aql Rest Area.",
+        "duration_minutes": 15
+      }
+    ],
+    "report": {
+      "total_violations": 1,
+      "violations_breakdown": {
+        "fatigue": 0,
+        "speeding": 0,
+        "phone": 0,
+        "tailgating": 0,
+        "seatbelt": 0,
+        "lane_drift": 0,
+        "rest": 1
+      },
+      "followed_planned_rest": false,
+      "supervisor_summary": "Trip from Jeddah to Madinah by Khaled Al-Harbi & Youssef Hassan logged 1 violation(s)."
+    }
+  },
+  {
+    "trip_id": "T008",
+    "drivers": [
+      {
+        "driver_id": "D01",
+        "driver_name": "Ahmed Ali"
+      },
+      {
+        "driver_id": "D04",
+        "driver_name": "Khaled Al-Harbi"
+      }
+    ],
+    "origin": "Dammam",
+    "destination": "Jubail",
+    "departure_time": "2026-08-05T07:30:00Z",
+    "arrival_time": "2026-08-05T09:00:00Z",
+    "status": "completed",
+    "planned_rest_stops": [
+      {
+        "stop_name": "Jubail Coastal Station",
+        "scheduled_time": "2026-08-05T08:18:00Z",
+        "planned_duration_minutes": 15
+      }
+    ],
+    "events": [
+      {
+        "timestamp": "2026-08-05T07:55:00Z",
+        "type": "tailgating",
+        "severity": "high",
+        "details": "Leaving no safe distance in front of the vehicle"
+      },
+      {
+        "timestamp": "2026-08-05T08:18:00Z",
+        "type": "rest",
+        "severity": "medium",
+        "details": "Rest stop completed at Jubail Coastal Station.",
+        "duration_minutes": 10
+      },
+      {
+        "timestamp": "2026-08-05T08:32:00Z",
+        "type": "lane_drift",
+        "severity": "high",
+        "details": "Drifting from lane without active turn indicator"
+      }
+    ],
+    "report": {
+      "total_violations": 3,
+      "violations_breakdown": {
+        "fatigue": 0,
+        "speeding": 0,
+        "phone": 0,
+        "tailgating": 1,
+        "seatbelt": 0,
+        "lane_drift": 1,
+        "rest": 1
+      },
+      "followed_planned_rest": false,
+      "supervisor_summary": "Trip from Dammam to Jubail by Ahmed Ali & Khaled Al-Harbi logged 3 violation(s). Unsafe following distance logged. Unintentional lane drift observed."
+    }
+  },
+  {
+    "trip_id": "T009",
+    "drivers": [
+      {
+        "driver_id": "D04",
+        "driver_name": "Khaled Al-Harbi"
+      },
+      {
+        "driver_id": "D05",
+        "driver_name": "Fahad Salem"
+      }
+    ],
+    "origin": "Jeddah",
+    "destination": "Madinah",
+    "departure_time": "2026-08-05T11:30:00Z",
+    "arrival_time": "2026-08-05T15:30:00Z",
+    "status": "completed",
+    "planned_rest_stops": [
+      {
+        "stop_name": "Wadi Al-Aql Rest Area",
+        "scheduled_time": "2026-08-05T13:30:00Z",
+        "planned_duration_minutes": 20
+      }
+    ],
+    "events": [
+      {
+        "timestamp": "2026-08-05T13:30:00Z",
+        "type": "rest",
+        "severity": "medium",
+        "details": "Rest stop completed at Wadi Al-Aql Rest Area.",
+        "duration_minutes": 15
+      }
+    ],
+    "report": {
+      "total_violations": 1,
+      "violations_breakdown": {
+        "fatigue": 0,
+        "speeding": 0,
+        "phone": 0,
+        "tailgating": 0,
+        "seatbelt": 0,
+        "lane_drift": 0,
+        "rest": 1
+      },
+      "followed_planned_rest": false,
+      "supervisor_summary": "Trip from Jeddah to Madinah by Khaled Al-Harbi & Fahad Salem logged 1 violation(s)."
+    }
+  },
+  {
+    "trip_id": "T010",
+    "drivers": [
+      {
+        "driver_id": "D01",
+        "driver_name": "Ahmed Ali"
+      },
+      {
+        "driver_id": "D03",
+        "driver_name": "Tariq Mansour"
+      }
+    ],
+    "origin": "Riyadh",
+    "destination": "Tabuk",
+    "departure_time": "2026-08-06T15:30:00Z",
+    "arrival_time": "2026-08-07T02:30:00Z",
+    "status": "completed",
+    "planned_rest_stops": [
+      {
+        "stop_name": "Sudair Service Station",
+        "scheduled_time": "2026-08-06T18:30:00Z",
+        "planned_duration_minutes": 30
+      },
+      {
+        "stop_name": "Hail Central Rest Area",
+        "scheduled_time": "2026-08-06T22:00:00Z",
+        "planned_duration_minutes": 30
+      },
+      {
+        "stop_name": "Tabuk Highway Express",
+        "scheduled_time": "2026-08-07T00:30:00Z",
+        "planned_duration_minutes": 20
+      }
+    ],
+    "events": [
+      {
+        "timestamp": "2026-08-06T18:30:00Z",
+        "type": "rest",
+        "severity": "low",
+        "details": "Rest stop completed at Sudair Service Station.",
+        "duration_minutes": 30
+      },
+      {
+        "timestamp": "2026-08-06T19:56:00Z",
+        "type": "lane_drift",
+        "severity": "high",
+        "details": "Drifting from lane without active turn indicator"
+      },
+      {
+        "timestamp": "2026-08-06T22:00:00Z",
+        "type": "rest",
+        "severity": "low",
+        "details": "Rest stop completed at Hail Central Rest Area.",
+        "duration_minutes": 30
+      },
+      {
+        "timestamp": "2026-08-07T00:30:00Z",
+        "type": "rest",
+        "severity": "low",
+        "details": "Rest stop completed at Tabuk Highway Express.",
+        "duration_minutes": 20
+      }
+    ],
+    "report": {
+      "total_violations": 1,
+      "violations_breakdown": {
+        "fatigue": 0,
+        "speeding": 0,
+        "phone": 0,
+        "tailgating": 0,
+        "seatbelt": 0,
+        "lane_drift": 1,
+        "rest": 0
+      },
+      "followed_planned_rest": true,
+      "supervisor_summary": "Trip from Riyadh to Tabuk by Ahmed Ali & Tariq Mansour logged 1 violation(s). Unintentional lane drift observed."
+    }
+  },
+  {
+    "trip_id": "T011",
+    "drivers": [
+      {
+        "driver_id": "D02",
+        "driver_name": "Youssef Hassan"
+      },
+      {
+        "driver_id": "D03",
+        "driver_name": "Tariq Mansour"
+      }
+    ],
+    "origin": "Dammam",
+    "destination": "Jubail",
+    "departure_time": "2026-08-06T19:30:00Z",
+    "arrival_time": "2026-08-06T21:00:00Z",
+    "status": "completed",
+    "planned_rest_stops": [
+      {
+        "stop_name": "Jubail Coastal Station",
+        "scheduled_time": "2026-08-06T20:18:00Z",
+        "planned_duration_minutes": 15
+      }
+    ],
+    "events": [
+      {
+        "timestamp": "2026-08-06T20:18:00Z",
+        "type": "rest",
+        "severity": "medium",
+        "details": "Rest stop completed at Jubail Coastal Station.",
+        "duration_minutes": 10
+      },
+      {
+        "timestamp": "2026-08-06T20:32:00Z",
+        "type": "speeding",
+        "severity": "high",
+        "details": "Vehicle speed reached 137 km/h in designated speed zone"
+      }
+    ],
+    "report": {
+      "total_violations": 2,
+      "violations_breakdown": {
+        "fatigue": 0,
+        "speeding": 1,
+        "phone": 0,
+        "tailgating": 0,
+        "seatbelt": 0,
+        "lane_drift": 0,
+        "rest": 1
+      },
+      "followed_planned_rest": false,
+      "supervisor_summary": "Trip from Dammam to Jubail by Youssef Hassan & Tariq Mansour logged 2 violation(s). Speeding threshold exceeded."
+    }
+  },
+  {
+    "trip_id": "T012",
+    "drivers": [
+      {
+        "driver_id": "D02",
+        "driver_name": "Youssef Hassan"
+      },
+      {
+        "driver_id": "D05",
+        "driver_name": "Fahad Salem"
+      }
+    ],
+    "origin": "Riyadh",
+    "destination": "Jeddah",
+    "departure_time": "2026-08-07T07:30:00Z",
+    "arrival_time": "2026-08-07T17:00:00Z",
+    "status": "completed",
+    "planned_rest_stops": [
+      {
+        "stop_name": "Zulal Qassim-Riyadh Stop",
+        "scheduled_time": "2026-08-07T10:30:00Z",
+        "planned_duration_minutes": 30
+      },
+      {
+        "stop_name": "Mecca Expressway Service Center",
+        "scheduled_time": "2026-08-07T14:00:00Z",
+        "planned_duration_minutes": 30
+      }
+    ],
+    "events": [
+      {
+        "timestamp": "2026-08-07T10:30:00Z",
+        "type": "rest",
+        "severity": "low",
+        "details": "Rest stop completed at Zulal Qassim-Riyadh Stop.",
+        "duration_minutes": 35
+      },
+      {
+        "timestamp": "2026-08-07T14:00:00Z",
+        "type": "rest",
+        "severity": "low",
+        "details": "Rest stop completed at Mecca Expressway Service Center.",
+        "duration_minutes": 30
+      }
+    ],
+    "report": {
+      "total_violations": 0,
+      "violations_breakdown": {
+        "fatigue": 0,
+        "speeding": 0,
+        "phone": 0,
+        "tailgating": 0,
+        "seatbelt": 0,
+        "lane_drift": 0,
+        "rest": 0
+      },
+      "followed_planned_rest": true,
+      "supervisor_summary": "Trip completed smoothly from Riyadh to Jeddah by Youssef Hassan & Fahad Salem with zero violations."
+    }
+  },
+  {
+    "trip_id": "T013",
+    "drivers": [
+      {
+        "driver_id": "D01",
+        "driver_name": "Ahmed Ali"
+      },
+      {
+        "driver_id": "D04",
+        "driver_name": "Khaled Al-Harbi"
+      }
+    ],
+    "origin": "Dammam",
+    "destination": "Jubail",
+    "departure_time": "2026-08-07T11:30:00Z",
+    "arrival_time": "2026-08-07T13:00:00Z",
+    "status": "completed",
+    "planned_rest_stops": [
+      {
+        "stop_name": "Jubail Coastal Station",
+        "scheduled_time": "2026-08-07T12:18:00Z",
+        "planned_duration_minutes": 15
+      }
+    ],
+    "events": [
+      {
+        "timestamp": "2026-08-07T12:03:00Z",
+        "type": "fatigue",
+        "severity": "medium",
+        "details": "Micro-sleep event detected by optical driver monitoring sensor"
+      },
+      {
+        "timestamp": "2026-08-07T12:18:00Z",
+        "type": "rest",
+        "severity": "medium",
+        "details": "Rest stop completed at Jubail Coastal Station.",
+        "duration_minutes": 10
+      },
+      {
+        "timestamp": "2026-08-07T12:22:00Z",
+        "type": "phone",
+        "severity": "low",
+        "details": "Mobile device interaction detected while vehicle was in motion"
+      }
+    ],
+    "report": {
+      "total_violations": 3,
+      "violations_breakdown": {
+        "fatigue": 1,
+        "speeding": 0,
+        "phone": 1,
+        "tailgating": 0,
+        "seatbelt": 0,
+        "lane_drift": 0,
+        "rest": 1
+      },
+      "followed_planned_rest": false,
+      "supervisor_summary": "Trip from Dammam to Jubail by Ahmed Ali & Khaled Al-Harbi logged 3 violation(s). Critical fatigue/micro-sleep event detected."
+    }
+  },
+  {
+    "trip_id": "T014",
+    "drivers": [
+      {
+        "driver_id": "D05",
+        "driver_name": "Fahad Salem"
+      }
+    ],
+    "origin": "Riyadh",
+    "destination": "Dammam",
+    "departure_time": "2026-08-08T15:30:00Z",
+    "arrival_time": "2026-08-08T20:00:00Z",
+    "status": "completed",
+    "planned_rest_stops": [
+      {
+        "stop_name": "Sasco Al-Ahsa Station",
+        "scheduled_time": "2026-08-08T17:42:00Z",
+        "planned_duration_minutes": 25
+      }
+    ],
+    "events": [
+      {
+        "timestamp": "2026-08-08T17:42:00Z",
+        "type": "rest",
+        "severity": "low",
+        "details": "Rest stop completed at Sasco Al-Ahsa Station.",
+        "duration_minutes": 25
+      }
+    ],
+    "report": {
+      "total_violations": 0,
+      "violations_breakdown": {
+        "fatigue": 0,
+        "speeding": 0,
+        "phone": 0,
+        "tailgating": 0,
+        "seatbelt": 0,
+        "lane_drift": 0,
+        "rest": 0
+      },
+      "followed_planned_rest": true,
+      "supervisor_summary": "Trip completed smoothly from Riyadh to Dammam by Fahad Salem with zero violations."
+    }
+  },
+  {
+    "trip_id": "T015",
+    "drivers": [
+      {
+        "driver_id": "D02",
+        "driver_name": "Youssef Hassan"
+      }
+    ],
+    "origin": "Riyadh",
+    "destination": "Tabuk",
+    "departure_time": "2026-08-08T19:30:00Z",
+    "arrival_time": "2026-08-09T06:30:00Z",
+    "status": "completed",
+    "planned_rest_stops": [
+      {
+        "stop_name": "Sudair Service Station",
+        "scheduled_time": "2026-08-08T22:30:00Z",
+        "planned_duration_minutes": 30
+      },
+      {
+        "stop_name": "Hail Central Rest Area",
+        "scheduled_time": "2026-08-09T02:00:00Z",
+        "planned_duration_minutes": 30
+      },
+      {
+        "stop_name": "Tabuk Highway Express",
+        "scheduled_time": "2026-08-09T04:30:00Z",
+        "planned_duration_minutes": 20
+      }
+    ],
+    "events": [
+      {
+        "timestamp": "2026-08-08T22:15:00Z",
+        "type": "fatigue",
+        "severity": "medium",
+        "details": "Micro-sleep event detected by optical driver monitoring sensor"
+      },
+      {
+        "timestamp": "2026-08-08T22:30:00Z",
+        "type": "rest",
+        "severity": "low",
+        "details": "Rest stop completed at Sudair Service Station.",
+        "duration_minutes": 35
+      },
+      {
+        "timestamp": "2026-08-09T02:00:00Z",
+        "type": "rest",
+        "severity": "low",
+        "details": "Rest stop completed at Hail Central Rest Area.",
+        "duration_minutes": 35
+      },
+      {
+        "timestamp": "2026-08-09T04:30:00Z",
+        "type": "rest",
+        "severity": "low",
+        "details": "Rest stop completed at Tabuk Highway Express.",
+        "duration_minutes": 25
+      }
+    ],
+    "report": {
+      "total_violations": 1,
+      "violations_breakdown": {
+        "fatigue": 1,
+        "speeding": 0,
+        "phone": 0,
+        "tailgating": 0,
+        "seatbelt": 0,
+        "lane_drift": 0,
+        "rest": 0
+      },
+      "followed_planned_rest": true,
+      "supervisor_summary": "Trip from Riyadh to Tabuk by Youssef Hassan logged 1 violation(s). Critical fatigue/micro-sleep event detected."
+    }
+  },
+  {
+    "trip_id": "T016",
+    "drivers": [
+      {
+        "driver_id": "D04",
+        "driver_name": "Khaled Al-Harbi"
+      },
+      {
+        "driver_id": "D02",
+        "driver_name": "Youssef Hassan"
+      }
+    ],
+    "origin": "Riyadh",
+    "destination": "Dammam",
+    "departure_time": "2026-08-09T07:30:00Z",
+    "arrival_time": "2026-08-09T12:00:00Z",
+    "status": "completed",
+    "planned_rest_stops": [
+      {
+        "stop_name": "Sasco Al-Ahsa Station",
+        "scheduled_time": "2026-08-09T09:42:00Z",
+        "planned_duration_minutes": 25
+      }
+    ],
+    "events": [
+      {
+        "timestamp": "2026-08-09T08:11:00Z",
+        "type": "lane_drift",
+        "severity": "medium",
+        "details": "Drifting from lane without active turn indicator"
+      },
+      {
+        "timestamp": "2026-08-09T09:01:00Z",
+        "type": "phone",
+        "severity": "high",
+        "details": "Mobile device interaction detected while vehicle was in motion"
+      },
+      {
+        "timestamp": "2026-08-09T09:42:00Z",
+        "type": "rest",
+        "severity": "medium",
+        "details": "Rest stop completed at Sasco Al-Ahsa Station.",
+        "duration_minutes": 20
+      }
+    ],
+    "report": {
+      "total_violations": 3,
+      "violations_breakdown": {
+        "fatigue": 0,
+        "speeding": 0,
+        "phone": 1,
+        "tailgating": 0,
+        "seatbelt": 0,
+        "lane_drift": 1,
+        "rest": 1
+      },
+      "followed_planned_rest": false,
+      "supervisor_summary": "Trip from Riyadh to Dammam by Khaled Al-Harbi & Youssef Hassan logged 3 violation(s). Unintentional lane drift observed."
+    }
+  },
+  {
+    "trip_id": "T017",
+    "drivers": [
+      {
+        "driver_id": "D02",
+        "driver_name": "Youssef Hassan"
+      }
+    ],
+    "origin": "Riyadh",
+    "destination": "Jeddah",
+    "departure_time": "2026-08-09T11:30:00Z",
+    "arrival_time": "2026-08-09T21:00:00Z",
+    "status": "completed",
+    "planned_rest_stops": [
+      {
+        "stop_name": "Zulal Qassim-Riyadh Stop",
+        "scheduled_time": "2026-08-09T14:30:00Z",
+        "planned_duration_minutes": 30
+      },
+      {
+        "stop_name": "Mecca Expressway Service Center",
+        "scheduled_time": "2026-08-09T18:00:00Z",
+        "planned_duration_minutes": 30
+      }
+    ],
+    "events": [
+      {
+        "timestamp": "2026-08-09T14:30:00Z",
+        "type": "rest",
+        "severity": "medium",
+        "details": "Rest stop completed at Zulal Qassim-Riyadh Stop.",
+        "duration_minutes": 25
+      },
+      {
+        "timestamp": "2026-08-09T18:00:00Z",
+        "type": "rest",
+        "severity": "low",
+        "details": "Rest stop completed at Mecca Expressway Service Center.",
+        "duration_minutes": 30
+      }
+    ],
+    "report": {
+      "total_violations": 1,
+      "violations_breakdown": {
+        "fatigue": 0,
+        "speeding": 0,
+        "phone": 0,
+        "tailgating": 0,
+        "seatbelt": 0,
+        "lane_drift": 0,
+        "rest": 1
+      },
+      "followed_planned_rest": false,
+      "supervisor_summary": "Trip from Riyadh to Jeddah by Youssef Hassan logged 1 violation(s)."
+    }
+  },
+  {
+    "trip_id": "T018",
+    "drivers": [
+      {
+        "driver_id": "D04",
+        "driver_name": "Khaled Al-Harbi"
+      },
+      {
+        "driver_id": "D02",
+        "driver_name": "Youssef Hassan"
+      }
+    ],
+    "origin": "Dammam",
+    "destination": "Jubail",
+    "departure_time": "2026-08-10T15:30:00Z",
+    "arrival_time": "2026-08-10T17:00:00Z",
+    "status": "completed",
+    "planned_rest_stops": [
+      {
+        "stop_name": "Jubail Coastal Station",
+        "scheduled_time": "2026-08-10T16:18:00Z",
+        "planned_duration_minutes": 15
+      }
+    ],
+    "events": [
+      {
+        "timestamp": "2026-08-10T16:18:00Z",
+        "type": "rest",
+        "severity": "low",
+        "details": "Rest stop completed at Jubail Coastal Station.",
+        "duration_minutes": 15
+      },
+      {
+        "timestamp": "2026-08-10T16:24:00Z",
+        "type": "fatigue",
+        "severity": "medium",
+        "details": "Micro-sleep event detected by optical driver monitoring sensor"
+      }
+    ],
+    "report": {
+      "total_violations": 1,
+      "violations_breakdown": {
+        "fatigue": 1,
+        "speeding": 0,
+        "phone": 0,
+        "tailgating": 0,
+        "seatbelt": 0,
+        "lane_drift": 0,
+        "rest": 0
+      },
+      "followed_planned_rest": true,
+      "supervisor_summary": "Trip from Dammam to Jubail by Khaled Al-Harbi & Youssef Hassan logged 1 violation(s). Critical fatigue/micro-sleep event detected."
+    }
+  },
+  {
+    "trip_id": "T019",
+    "drivers": [
+      {
+        "driver_id": "D04",
+        "driver_name": "Khaled Al-Harbi"
+      }
+    ],
+    "origin": "Riyadh",
+    "destination": "Dammam",
+    "departure_time": "2026-08-10T19:30:00Z",
+    "arrival_time": "2026-08-11T00:00:00Z",
+    "status": "completed",
+    "planned_rest_stops": [
+      {
+        "stop_name": "Sasco Al-Ahsa Station",
+        "scheduled_time": "2026-08-10T21:42:00Z",
+        "planned_duration_minutes": 25
+      }
+    ],
+    "events": [
+      {
+        "timestamp": "2026-08-10T21:01:00Z",
+        "type": "phone",
+        "severity": "high",
+        "details": "Mobile device interaction detected while vehicle was in motion"
+      },
+      {
+        "timestamp": "2026-08-10T21:42:00Z",
+        "type": "rest",
+        "severity": "low",
+        "details": "Rest stop completed at Sasco Al-Ahsa Station.",
+        "duration_minutes": 25
+      },
+      {
+        "timestamp": "2026-08-10T22:52:00Z",
+        "type": "fatigue",
+        "severity": "medium",
+        "details": "Micro-sleep event detected by optical driver monitoring sensor"
+      }
+    ],
+    "report": {
+      "total_violations": 2,
+      "violations_breakdown": {
+        "fatigue": 1,
+        "speeding": 0,
+        "phone": 1,
+        "tailgating": 0,
+        "seatbelt": 0,
+        "lane_drift": 0,
+        "rest": 0
+      },
+      "followed_planned_rest": true,
+      "supervisor_summary": "Trip from Riyadh to Dammam by Khaled Al-Harbi logged 2 violation(s). Critical fatigue/micro-sleep event detected."
+    }
+  },
+  {
+    "trip_id": "T020",
+    "drivers": [
+      {
+        "driver_id": "D05",
+        "driver_name": "Fahad Salem"
+      },
+      {
+        "driver_id": "D04",
+        "driver_name": "Khaled Al-Harbi"
+      }
+    ],
+    "origin": "Riyadh",
+    "destination": "Jeddah",
+    "departure_time": "2026-08-11T07:30:00Z",
+    "arrival_time": "2026-08-11T17:00:00Z",
+    "status": "completed",
+    "planned_rest_stops": [
+      {
+        "stop_name": "Zulal Qassim-Riyadh Stop",
+        "scheduled_time": "2026-08-11T10:30:00Z",
+        "planned_duration_minutes": 30
+      },
+      {
+        "stop_name": "Mecca Expressway Service Center",
+        "scheduled_time": "2026-08-11T14:00:00Z",
+        "planned_duration_minutes": 30
+      }
+    ],
+    "events": [
+      {
+        "timestamp": "2026-08-11T10:30:00Z",
+        "type": "rest",
+        "severity": "low",
+        "details": "Rest stop completed at Zulal Qassim-Riyadh Stop.",
+        "duration_minutes": 30
+      },
+      {
+        "timestamp": "2026-08-11T14:00:00Z",
+        "type": "rest",
+        "severity": "low",
+        "details": "Rest stop completed at Mecca Expressway Service Center.",
+        "duration_minutes": 30
+      }
+    ],
+    "report": {
+      "total_violations": 0,
+      "violations_breakdown": {
+        "fatigue": 0,
+        "speeding": 0,
+        "phone": 0,
+        "tailgating": 0,
+        "seatbelt": 0,
+        "lane_drift": 0,
+        "rest": 0
+      },
+      "followed_planned_rest": true,
+      "supervisor_summary": "Trip completed smoothly from Riyadh to Jeddah by Fahad Salem & Khaled Al-Harbi with zero violations."
+    }
+  }
+]
