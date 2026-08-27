@@ -10,3 +10,4 @@
 opencv-python-headless>=4.9
 ultralytics>=8.1
 mediapipe>=0.10
+deepface
